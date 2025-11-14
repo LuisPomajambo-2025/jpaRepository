@@ -35,5 +35,10 @@ public class ServicioCustomerImpl implements IServicioCustomer{
         return repositorioCustomer.findAllByOrderByCompanyNameDesc();
     }
 
+    @Override
+    public List<Customer> clientByCountryIn(List<String> country) {
+        return repositorioCustomer.findAllByCountryIn(country);
+    }
+
 
 }

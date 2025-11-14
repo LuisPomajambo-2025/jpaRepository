@@ -10,4 +10,5 @@ public interface IServicioCustomer {
      List<Customer> clientByCompanyContaining(String patron);
      List<Customer> clientByCountry(String country);
      List<Customer> clientByCompanyDesc();
+     List<Customer> clientByCountryIn(List<String> country);
 }

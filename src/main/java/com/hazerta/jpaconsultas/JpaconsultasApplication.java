@@ -7,6 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.List;
+
 @SpringBootApplication
 public class JpaconsultasApplication implements CommandLineRunner{
     @Autowired
@@ -35,5 +37,8 @@ public class JpaconsultasApplication implements CommandLineRunner{
         servicioCustomer.clientByCountry("Spain").forEach(System.out::println);
         System.out.println("Consulta personalizada en Custumer por compañia desc");
         servicioCustomer.clientByCompanyDesc().forEach(System.out::println);
+        System.out.println("Consulta personalizada en Custumer por lista de country");
+        List<String> listaCountry = List.of("Mexico", "Spain","Brazil");
+        servicioCustomer.clientByCountryIn(listaCountry).forEach(System.out::println);
     }
 }
