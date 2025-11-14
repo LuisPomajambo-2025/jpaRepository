@@ -30,8 +30,10 @@ public class JpaconsultasApplication implements CommandLineRunner{
         System.out.println("Consulta personalizada en Custumer por city y country");
         servicioCustomer.clientByCityAndCountry("México D.F.","Mexico").forEach(System.out::println);
         System.out.println("Consulta personalizada en Custumer por patron en compani");
-        servicioCustomer.clientByCompaniContaining("del").forEach(System.out::println);
+        servicioCustomer.clientByCompanyContaining("del").forEach(System.out::println);
         System.out.println("Consulta personalizada en Custumer por las ciudades de un pais");
         servicioCustomer.clientByCountry("Spain").forEach(System.out::println);
+        System.out.println("Consulta personalizada en Custumer por compañia desc");
+        servicioCustomer.clientByCompanyDesc().forEach(System.out::println);
     }
 }

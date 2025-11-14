@@ -10,4 +10,5 @@ public interface IRepositorioCustomer extends JpaRepository<Customer, String> {
     List<Customer> findByCityAndCountry(String city, String country);
     List<Customer> findByCompanyNameContaining(String patron);
     List<Customer> findByCountry(String country);
+    List<Customer> findByCompanyNameOrderByCompanyNameDesc();
 }

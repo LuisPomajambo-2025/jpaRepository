@@ -21,13 +21,18 @@ public class ServicioCustomerImpl implements IServicioCustomer{
     }
 
     @Override
-    public List<Customer> clientByCompaniContaining(String patron) {
+    public List<Customer> clientByCompanyContaining(String patron) {
         return repositorioCustomer.findByCompanyNameContaining(patron);
     }
 
     @Override
     public List<Customer> clientByCountry(String country) {
         return repositorioCustomer.findByCountry(country);
+    }
+
+    @Override
+    public List<Customer> clientByCompanyDesc() {
+        return repositorioCustomer.findByCompanyNameOrderByCompanyNameDesc();
     }
 
 
