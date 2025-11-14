@@ -1,5 +1,6 @@
 package com.hazerta.jpaconsultas;
 
+import com.hazerta.jpaconsultas.servicio.IServicioCustomer;
 import com.hazerta.jpaconsultas.servicio.IServicioProducto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -10,6 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JpaconsultasApplication implements CommandLineRunner{
     @Autowired
     IServicioProducto servicioProducto;
+    @Autowired
+    IServicioCustomer servicioCustomer;
 	public static void main(String[] args) {
 		SpringApplication.run(JpaconsultasApplication.class, args);
 	}
@@ -22,5 +25,13 @@ public class JpaconsultasApplication implements CommandLineRunner{
         servicioProducto.listarProductoPorNombre("Geitost").forEach(System.out::println);
         System.out.println("Consulta personalizada por patron");
         servicioProducto.listarProductoPorPatron("F").forEach(System.out::println);
+        System.out.println("Consulta personalizada en Custumer por city");
+        servicioCustomer.clientByCity("Berlin").forEach(System.out::println);
+        System.out.println("Consulta personalizada en Custumer por city y country");
+        servicioCustomer.clientByCityAndCountry("México D.F.","Mexico").forEach(System.out::println);
+        System.out.println("Consulta personalizada en Custumer por patron en compani");
+        servicioCustomer.clientByCompaniContaining("del").forEach(System.out::println);
+        System.out.println("Consulta personalizada en Custumer por las ciudades de un pais");
+        servicioCustomer.clientByCountry("Spain").forEach(System.out::println);
     }
 }
