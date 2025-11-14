@@ -32,7 +32,7 @@ public class ServicioCustomerImpl implements IServicioCustomer{
 
     @Override
     public List<Customer> clientByCompanyDesc() {
-        return repositorioCustomer.findByCompanyNameOrderByCompanyNameDesc();
+        return repositorioCustomer.findAllByOrderByCompanyNameDesc();
     }
 
 
