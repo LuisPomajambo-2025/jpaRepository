@@ -1,5 +1,6 @@
 package com.hazerta.jpaconsultas.modelo;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -19,6 +20,7 @@ public class Customer {
     private String customerId;
     private String companyName;
     private String contactName;
+    @Column(name="city")
     private String city;
     private String country;
 

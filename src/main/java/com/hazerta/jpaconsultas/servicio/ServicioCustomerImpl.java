@@ -3,6 +3,7 @@ package com.hazerta.jpaconsultas.servicio;
 import com.hazerta.jpaconsultas.modelo.Customer;
 import com.hazerta.jpaconsultas.repository.IRepositorioCustomer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,6 +39,27 @@ public class ServicioCustomerImpl implements IServicioCustomer{
     @Override
     public List<Customer> clientByCountryIn(List<String> country) {
         return repositorioCustomer.findAllByCountryIn(country);
+    }
+
+    @Override
+    public List<Customer> clientByPosicional(String country) {
+        return repositorioCustomer.findByPosicionalCountry(country);
+    }
+
+    @Override
+    public List<Customer> clientByContactName(String contactName) {
+        return repositorioCustomer.findByParamCountry(contactName);
+    }
+
+    @Override
+    public List<Customer> clientByCitySort() {
+        Sort sort = Sort.by("city");
+        return repositorioCustomer.findAll(sort);
+    }
+
+    @Override
+    public List<Customer> clientByCountryNative(String country) {
+        return repositorioCustomer.findByCountryNative(country);
     }
 
 
